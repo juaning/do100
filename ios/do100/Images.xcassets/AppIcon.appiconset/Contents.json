@@ -13,6 +13,11 @@
     {
       "idiom" : "iphone",
       "size" : "29x29",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "29x29",
       "scale" : "2x"
     },
     {
@@ -32,13 +37,27 @@
     },
     {
       "idiom" : "iphone",
-      "size" : "60x60",
-      "scale" : "2x"
+      "size" : "57x57",
+      "scale" : "1x",
+      "filename" : "sumo_icon.png"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "57x57",
+      "scale" : "2x",
+      "filename" : "sumo_icon@2x.png"
     },
     {
       "idiom" : "iphone",
       "size" : "60x60",
-      "scale" : "3x"
+      "scale" : "2x",
+      "filename" : "sumo_icon@2x.png"
+    },
+    {
+      "idiom" : "iphone",
+      "size" : "60x60",
+      "scale" : "3x",
+      "filename" : "sumo_icon@3x.png"
     }
   ],
   "info" : {
