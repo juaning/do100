@@ -1,5 +1,5 @@
 import React from 'react';
 import CameraRecord from './layouts/CameraRecord';
 
-const App = (props) => <CameraRecord />;
+const App = () => <CameraRecord />;
 export default App;
