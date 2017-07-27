@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Navigator } from 'react-native';
 import Camera from 'react-native-camera';
 import styles from './styles';
+import Routes from '../../config/routes';
 
 class CameraRecord extends Component {
   constructor() {
@@ -23,6 +24,8 @@ class CameraRecord extends Component {
       .capture(options)
       .then((data) => {
         console.log('----->DATA<-----', data);
+        return <Navigator initialRoute={Routes.getVideoPlayerRoute()} style={{ flex: 1 }} />;
+        // this.navigator.push(Routes.getVideoPlayerRoute());
       })
       .catch(err => console.error(err));
   }

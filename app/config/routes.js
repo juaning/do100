@@ -1,6 +1,8 @@
 import React from 'react';
-import CameraRecord from '../routes/CameraRecord';
-import VideoPlayer from '../routes/VideoPlayer';
+// import CameraRecord from '../routes/CameraRecord';
+// import VideoPlayer from '../routes/VideoPlayer';
+import CameraRecord from '../layouts/CameraRecord';
+import VideoPlayer from '../layouts/VideoPlayer';
 
 const routes = {
   getCameraRecordRoute() {
@@ -23,9 +25,9 @@ const routes = {
 
       getTitle() {
         return 'Preview';
-      }
+      },
     };
-  }
+  },
 };
 
 export default routes;

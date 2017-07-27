@@ -12,7 +12,8 @@
     "react": "16.0.0-alpha.12",
     "react-native": "0.46.1",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
-    "react-native-video": "^1.0.0"
+    "react-native-video": "^1.0.0",
+    "react-navigation": "^1.0.0-beta.11"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -20,7 +21,7 @@
     "babel-preset-react-native": "2.1.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
     "jest": "20.0.4",
