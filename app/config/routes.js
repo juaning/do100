@@ -1,33 +1,19 @@
-import React from 'react';
-// import CameraRecord from '../routes/CameraRecord';
-// import VideoPlayer from '../routes/VideoPlayer';
+import { StackNavigator } from 'react-navigation';
 import CameraRecord from '../layouts/CameraRecord';
 import VideoPlayer from '../layouts/VideoPlayer';
 
-const routes = {
-  getCameraRecordRoute() {
-    return {
-      renderScene(navigator) {
-        return <CameraRecord navigator={navigator} />;
-      },
-
-      getTitle() {
-        return 'Camera';
-      },
-    };
+const AppRoutes = StackNavigator(
+  {
+    CameraRecord: { screen: CameraRecord },
+    VideoPlayer: { screen: VideoPlayer },
+    Index: {
+      screen: CameraRecord,
+    },
   },
-
-  getVideoPlayerRoute() {
-    return {
-      renderScene(navigator) {
-        return <VideoPlayer navigator={navigator} />;
-      },
-
-      getTitle() {
-        return 'Preview';
-      },
-    };
+  {
+    initialRouteName: 'Index',
+    headerMode: 'none',
   },
-};
+);
 
-export default routes;
+export default AppRoutes;

@@ -1,5 +1,4 @@
 import React from 'react';
-import CameraRecord from './layouts/CameraRecord';
+import AppRoutes from './config/routes';
 
-const App = () => <CameraRecord />;
-export default App;
+export default () => <AppRoutes />;

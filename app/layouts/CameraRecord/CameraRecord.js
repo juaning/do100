@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View, Navigator } from 'react-native';
+import PropTypes from 'prop-types';
+import { Text, View } from 'react-native';
 import Camera from 'react-native-camera';
 import styles from './styles';
-import Routes from '../../config/routes';
 
 class CameraRecord extends Component {
+  static navigationOptions = {
+    title: 'Record',
+  };
   constructor() {
     super();
     this.state = {
@@ -14,6 +17,7 @@ class CameraRecord extends Component {
     this.stopRecordVideo = this.stopRecordVideo.bind(this);
   }
   recordVideo() {
+    const { navigate } = this.props.navigation;
     const options = {
       totalSeconds: 15,
     };
@@ -23,19 +27,16 @@ class CameraRecord extends Component {
     this.camera
       .capture(options)
       .then((data) => {
-        console.log('----->DATA<-----', data);
-        return <Navigator initialRoute={Routes.getVideoPlayerRoute()} style={{ flex: 1 }} />;
-        // this.navigator.push(Routes.getVideoPlayerRoute());
+        navigate('VideoPlayer', { data });
       })
+      /* eslint no-console: ["error", { allow: ["error"] }] */
       .catch(err => console.error(err));
   }
-
   stopRecordVideo() {
     this.setState({
       showRecordVideo: true,
     });
     this.camera.stopCapture();
-    console.log('stopped recording');
   }
   renderButton() {
     if (this.state.showRecordVideo) {
@@ -44,7 +45,6 @@ class CameraRecord extends Component {
     return <Text style={styles.stopRecord} onPress={this.stopRecordVideo}>[STOP]</Text>;
   }
   render() {
-    console.log('Render');
     return (
       <View style={styles.container}>
         <Camera
@@ -54,6 +54,7 @@ class CameraRecord extends Component {
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}
           captureMode={Camera.constants.CaptureMode.video}
+          // captureTarget={Camera.constants.CaptureTarget.disk}
           captureAudio
         >
           {this.renderButton()}
@@ -64,3 +65,7 @@ class CameraRecord extends Component {
 }
 
 export default CameraRecord;
+
+CameraRecord.propTypes = {
+  navigation: PropTypes.object,
+};
