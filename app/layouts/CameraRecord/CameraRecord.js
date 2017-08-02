@@ -27,7 +27,8 @@ class CameraRecord extends Component {
     this.camera
       .capture(options)
       .then((data) => {
-        navigate('VideoPlayer', { data });
+        // navigate('VideoPlayer', { data });
+        navigate('AlbumExplorer', { data });
       })
       /* eslint no-console: ["error", { allow: ["error"] }] */
       .catch(err => console.error(err));
