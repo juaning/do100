@@ -27,8 +27,7 @@ class CameraRecord extends Component {
     this.camera
       .capture(options)
       .then((data) => {
-        // navigate('VideoPlayer', { data });
-        navigate('AlbumExplorer', { data });
+        navigate('VideoPlayer', { uri: data.path });
       })
       /* eslint no-console: ["error", { allow: ["error"] }] */
       .catch(err => console.error(err));
@@ -55,7 +54,6 @@ class CameraRecord extends Component {
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}
           captureMode={Camera.constants.CaptureMode.video}
-          // captureTarget={Camera.constants.CaptureTarget.disk}
           captureAudio
         >
           {this.renderButton()}

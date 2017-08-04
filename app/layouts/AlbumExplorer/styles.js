@@ -1,12 +1,12 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import padding from '../../config/styles';
 
-const paddingTop = 20;
-const height = Dimensions.get('window').height - paddingTop;
+const height = Dimensions.get('window').height - padding.paddingTop;
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop,
+    paddingTop: padding.paddingTop,
     height,
   },
   toolbar: {
