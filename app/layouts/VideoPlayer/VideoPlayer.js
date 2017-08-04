@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Video from 'react-native-video';
 import styles from './styles';
 
@@ -20,11 +20,13 @@ class VideoPlayer extends Component {
   }
   render() {
     const { params } = this.props.navigation.state;
-    const { path } = params.data;
-    const uri = path.substring(0, path.length - 4);
+    const { uri } = params;
+    // const uri = path.substring(0, path.length - 4);
     return (
       <View style={styles.container}>
+        <Text>Before</Text>
         <Video source={{ uri }} resizeMode="cover" onLoadStart={this.onLoadStart} />
+        <Text>Testing in the dark</Text>
       </View>
     );
   }
