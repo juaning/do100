@@ -20,4 +20,3 @@ export default StyleSheet.create({
     marginTop: 50,
   },
 });
-// <div><pre>{JSON.stringify({ a: 1, b: 2 }, null, 2)}</pre></div>

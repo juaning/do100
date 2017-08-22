@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Text, View, TouchableOpacity } from 'react-native';
+// import { View } from 'react-native';
 import { GoogleSignin, GoogleSigninButton } from 'react-native-google-signin';
 import styles from './styles';
+import keys from '../../config/common';
 
 class GoogleSigninLayout extends Component {
   constructor(props) {
@@ -18,23 +21,25 @@ class GoogleSigninLayout extends Component {
     try {
       await GoogleSignin.hasPlayServices({ autoResolve: true });
       await GoogleSignin.configure({
-        iosClientId: '1093201635328-dkf3p4r4ib5li7bbs07e465okgabkqao.apps.googleusercontent.com',
+        iosClientId: keys.iosClientId,
         offlineAccess: false,
       });
       const user = await GoogleSignin.currentUserAsync();
-      console.log('====>USER<====', user);
       this.setState({ user });
     } catch (err) {
-      console.log('Google signin error', err.code, err.message);
+      /* eslint no-console: ["error", { allow: ["error"] }] */
+      console.error('Google signin error', err.code, err.message);
     }
   }
   signInLocal() {
     GoogleSignin.signIn()
       .then((user) => {
-        console.log('====>SIGNIN USER<=====', user);
         this.setState({ user });
       })
-      .catch(err => console.log('WRONG SIGNIN', err))
+      .catch((err) => {
+        /* eslint no-console: ["error", { allow: ["error"] }] */
+        console.error('WRONG SIGNIN', err);
+      })
       .done();
   }
   signOutLocal() {
@@ -58,7 +63,6 @@ class GoogleSigninLayout extends Component {
         </View>
       );
     }
-    console.log('TESTING OUT');
     return (
       <View style={styles.container}>
         <Text style={styles.welcomeText}>Welcome {this.state.user.name}</Text>
@@ -76,5 +80,9 @@ class GoogleSigninLayout extends Component {
     );
   }
 }
+
+GoogleSigninLayout.propTypes = {
+  navigation: PropTypes.object,
+};
 
 export default GoogleSigninLayout;
